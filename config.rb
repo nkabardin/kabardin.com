@@ -41,9 +41,8 @@ set :images_dir, 'images'
 
 require 'slim'
 
-ready do
-  sprockets.append_path File.join root, 'bower_components'
-end
+
+sprockets.append_path File.join root, 'bower_components'
 
 activate :autoprefixer
 
@@ -56,5 +55,7 @@ end
 
 activate :deploy do |deploy|
   deploy.build_before = true
+  deploy.remote   = "git@github.com:nkabardin/nkabardin.github.io.git"
+  deploy.branch   = "master"
   deploy.method = :git
 end
