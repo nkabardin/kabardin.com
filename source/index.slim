@@ -2,5 +2,39 @@
 title: Nikita Kabardin
 ---
 
-h1
-  | Nikita Kabardin's website
+.container.myself
+  .row
+    .col-md-2
+      == image_tag "ava.jpg", class: 'img-responsive img-rounded'
+    .col-md-6
+      h2 Cheers!
+      p
+        | Hello! My name is Nikita and I'm software developer and hobbyist musician from Saint Petersburg, Russia. Currently I work as a front-end developer at
+        a href="http://toptal.com"
+          |  Toptal
+        | .
+      p
+        | If you want to book me for live performance, please contact me on one of the social networks or
+        a href="mailto:nikita@kabardin.com"
+          | &nbsp;email me
+        | .
+
+.jumbotron
+  .container
+    .row
+      .col-md-6
+        .soundcloud-block
+          iframe width="100%" height="600" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/46389102&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"
+      .col-md-4
+        h1
+          | New album: Park Pobedy
+
+        a.btn.btn-primary.btn-lg href="http://drops.kabardin.com/2Q092w3f3i1P/NikitaKabardinParkPobedyMP3.zip" role="button" Free download
+        .format-download-options
+          | MP3 by default. Also available in&nbsp;
+          a href="http://drops.kabardin.com/103S3u1e251g/NikitaKabardinParkPobedyFLAC.zip" FLAC
+          | &nbsp;and&nbsp;
+          a href="http://drops.kabardin.com/1Q2r2x0L1o2P/NikitaKabardinParkPobedyALAC.zip" ALAC
+          | .
+
+
