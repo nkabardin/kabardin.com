@@ -15,3 +15,5 @@ gem "tzinfo-data", platforms: [:mswin, :mingw]
 
 gem "slim"
 gem "middleman-autoprefixer"
+
+gem "middleman-deploy"
