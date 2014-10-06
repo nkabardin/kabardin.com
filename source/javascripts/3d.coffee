@@ -39,8 +39,8 @@ class Cube
     @position = [x, y, z]
     @color = color()
     @el = createCube(@size, @position, @color)
-    @xK = (r(2)-1) / 10
-    @yK = (r(2)-1) / 10
+    @xK = (r(2)-1) / 100
+    @yK = (r(2)-1) / 100
 
   renderFrame: () ->
     @el.rotation.x += @xK
