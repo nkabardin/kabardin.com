@@ -1,28 +1,29 @@
 
 console.log 'hey'
 scene = new THREE.Scene()
-camera = new THREE.PerspectiveCamera(90 , window.innerWidth / window.innerHeight, 0.1, 1000)
+camera = new THREE.PerspectiveCamera(70 , window.innerWidth / window.innerHeight, 0.1, 1000)
 
 renderer = new THREE.WebGLRenderer()
+renderer.setClearColor(0xFFD600, 1);
 renderer.setSize(window.innerWidth, window.innerHeight)
 document.body.appendChild(renderer.domElement)
 
 PALETTE = [
-  0x255C69
-  0x83CEE0
-  0x829FA6
-  0x012730
-  0x015568
-  0xAA8939
-  0xFFDF91
-  0xFFEFC7
-  0x4E3800
-  0xA87800
-  0xAA3E39
-  0xFF9791
-  0xFFC9C7
-  0x4E0400
-  0xA80800
+   0xFFDB00
+   0x1D1900
+   0x9A8500
+   0xFFED7D
+   0xF3EBB7
+   0xF1007B
+   0x18000C
+   0x7F0041
+   0xED74B2
+   0xC896B0
+   0x049FE2
+   0x000D12
+   0x014461
+   0x70BADA
+   0x758E99
 ]
 
 color = ->
@@ -33,22 +34,24 @@ r = (m=1) ->
 
 class Cube
   constructor: (x, y, z) ->
-    size = 0.4 + (r(0.1))
+    size = 0.1 + (r(0.8))
     @size = [size, size, size]
     @position = [x, y, z]
     @color = color()
     @el = createCube(@size, @position, @color)
+    @xK = (r(2)-1) / 10
+    @yK = (r(2)-1) / 10
 
   renderFrame: () ->
-    @el.rotation.x += r(5) / 1000
-    @el.rotation.y += r(5) / 1000
+    @el.rotation.x += @xK
+    @el.rotation.y += @yK
 
 createCube = (sizes, position, color) ->
   geometry = new THREE.BoxGeometry(sizes[0], sizes[1], sizes[2])
   material = new THREE.MeshNormalMaterial({
     color: color
-    transparent: true
-    opacity: 0.3
+    transparent: false
+    opacity: 1
   })
   cube = new THREE.Mesh(geometry, material)
   cube.position.x = position[0]
@@ -62,9 +65,9 @@ CUBES = []
 makeCubes = (number, x, y, z, kx, ky, kz) ->
   while number > 0
     cube = new Cube(x, y, z)
-    x += r(kx)
-    y += r(ky)
-    z += r(kz)
+    x += r(kx)*7
+    y += r(ky)*7
+    z += r(kz)*7
     CUBES.push(cube)
     number -= 1
     scene.add(cube.el)
@@ -77,11 +80,11 @@ makeCubes(300, -1, 1.5, -5, -0.1, 0.02,  0.05)
 
 
 
-light = new THREE.PointLight(0xFFFFFF)
+# light = new THREE.PointLight(0xFFFFFF)
 
-light.position.x = 1
-light.position.y = 1
-light.position.z = 1
+# light.position.x = 1
+# light.position.y = 1
+# light.position.z = 1
 
 camera.position.x = -1
 camera.position.y = 2.3
