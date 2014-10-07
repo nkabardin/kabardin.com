@@ -1,5 +1,3 @@
-#= require "three.js/three.js"
-
 scene = new THREE.Scene()
 camera = new THREE.PerspectiveCamera(70 , window.innerWidth / window.innerHeight, 0.1, 1000)
 
@@ -77,14 +75,6 @@ makeCubes(300, 3, -2, -5, -0.1, 0.1,  0.01)
 makeCubes(300, -3, 1.5, -5, 0.1, 0.05,  0.05)
 makeCubes(300, -1, 1.5, -5, 0.1, 0.02,  0.05)
 makeCubes(300, -1, 1.5, -5, -0.1, 0.02,  0.05)
-
-
-
-# light = new THREE.PointLight(0xFFFFFF)
-
-# light.position.x = 1
-# light.position.y = 1
-# light.position.z = 1
 
 camera.position.x = -1
 camera.position.y = 2.3
