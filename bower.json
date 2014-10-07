@@ -3,6 +3,7 @@
   "dependencies": {
     "jquery": "~2.1.1",
     "bootstrap": "~3.2.0",
-    "three.js": "*"
+    "three.js": "*",
+    "normalize.css": "~3.0.2"
   }
 }

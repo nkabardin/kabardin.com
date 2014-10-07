@@ -4,7 +4,9 @@ camera = new THREE.PerspectiveCamera(70 , window.innerWidth / window.innerHeight
 renderer = new THREE.WebGLRenderer()
 renderer.setClearColor(0xFFD600, 1);
 renderer.setSize(window.innerWidth, window.innerHeight)
-document.body.appendChild(renderer.domElement)
+
+$ ->
+  $(".container")[0].appendChild(renderer.domElement)
 
 PALETTE = [
    0xFFDB00
