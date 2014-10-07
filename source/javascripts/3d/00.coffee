@@ -1,12 +1,9 @@
-scene = new THREE.Scene()
-camera = new THREE.PerspectiveCamera(70 , window.innerWidth / window.innerHeight, 0.1, 1000)
+scene = new T3.Scene()
+camera = new T3.PerspectiveCamera(70 , window.innerWidth / window.innerHeight, 0.1, 1000)
 
-renderer = new THREE.WebGLRenderer()
+renderer = new T3.WebGLRenderer()
 renderer.setClearColor(0xFFD600, 1);
 renderer.setSize(window.innerWidth, window.innerHeight)
-
-$ ->
-  $(".container")[0].appendChild(renderer.domElement)
 
 PALETTE = [
    0xFFDB00
@@ -47,18 +44,17 @@ class Cube
     @el.rotation.y += @yK
 
 createCube = (sizes, position, color) ->
-  geometry = new THREE.BoxGeometry(sizes[0], sizes[1], sizes[2])
-  material = new THREE.MeshNormalMaterial({
+  geometry = new T3.BoxGeometry(sizes[0], sizes[1], sizes[2])
+  material = new T3.MeshNormalMaterial({
     color: color
     transparent: false
     opacity: 1
   })
-  cube = new THREE.Mesh(geometry, material)
+  cube = new T3.Mesh(geometry, material)
   cube.position.x = position[0]
   cube.position.y = position[1]
   cube.position.z = position[2]
   cube
-
 
 CUBES = []
 
@@ -91,5 +87,9 @@ render = ->
   requestAnimationFrame(render)
 
 $ ->
+  $(".container")[0].appendChild(renderer.domElement)
   render()
+
+$(window).resize ->
+  renderer.setSize(window.innerWidth, window.innerHeight)
 
