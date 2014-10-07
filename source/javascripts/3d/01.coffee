@@ -100,9 +100,21 @@ render = ->
   requestAnimationFrame(render)
 
 $ ->
-  $(".container")[0].appendChild(renderer.domElement)
+  $('audio').on('canplaythrough', ->
+    console.log 'canplay'
+    $(".loading").remove()
+    $(".container")[0].appendChild(renderer.domElement)
+  )
+
 
   render()
+
+drone = new Audio('/audio/moon_loop.ogg')
+drone.addEventListener('ended', (->
+    @currentTime = 0
+    @play()
+), false)
+drone.play()
 
 $(window).resize ->
   renderer.setSize(window.innerWidth, window.innerHeight)
