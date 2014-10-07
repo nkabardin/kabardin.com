@@ -41,9 +41,6 @@ set :images_dir, 'images'
 
 require 'slim'
 
-page "/fun.html", :layout => "experiment_layout"
-
-
 sprockets.append_path File.join root, 'bower_components'
 
 activate :autoprefixer
