@@ -1,0 +1,90 @@
+//= require "normalize.css/normalize.css"
+
+=screen($startAt)
+  @media only screen and (max-width: $startAt)
+    @content
+
+=screen-1000($startAt: 1000px)
+  +screen($startAt)
+    @content
+
+=screen-500($startAt: 500px)
+  +screen($startAt)
+    @content
+
+$background: #F2EFDF
+$light: #9BBFAB
+$medium: #656F8C
+$text: #211426
+$focus: #413659
+
+$normal: 400
+$bold: 700
+
+$atom: 30px
+
+$link: $light
+$hover: #7A9687
+
+html
+  box-sizing: border-box
+
+*, *:before, *:after
+  box-sizing: inherit
+
+body
+  background: $background
+  font-family: 'Arvo', serif
+
+.content
+  margin: 100px auto
+  width: 900px
+
+  +screen-1000
+    margin: 50px 0
+    padding: 0 50px
+    width: 100%
+
+.block
+  margin-bottom: $atom * 2
+
+  +screen-500
+    margin-bottom: $atom
+
+  &.is-main
+    margin-bottom: $atom * 3
+
+    +screen-500
+      margin-bottom: $atom * 1.5
+
+p
+  font-size: 25px
+  margin-bottom: $atom
+  margin-top: 0
+
+  +screen-500
+    font-size: 20px
+    margin-bottom: $atom/2
+
+p.focus
+  color: $focus
+  font-size: 75px
+  margin-top: -$atom
+
+  +screen-500
+    font-size: 50px
+    margin-top: -$atom/2
+
+em
+  color: $medium
+  cursor: pointer
+  font-style: normal
+
+a
+  color: $light
+  text-decoration: none
+  transition: color 0.1s
+
+  &:hover
+    color: $hover
+    text-decoration: underline
