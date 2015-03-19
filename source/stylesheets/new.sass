@@ -12,6 +12,14 @@
   +screen($startAt)
     @content
 
+=screen-height($startAt)
+  @media only screen and (max-height: $startAt)
+    @content
+
+=screen-height-800($startAt: 800px)
+  +screen-height($startAt)
+    @content
+
 $background: #F2EFDF
 $light: #9BBFAB
 $medium: #656F8C
@@ -39,6 +47,9 @@ body
 .content
   margin: 100px auto
   width: 900px
+
+  +screen-height-800
+    margin-top: 50px
 
   +screen-1000
     margin: 50px 0
