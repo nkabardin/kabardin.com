@@ -1,0 +1,8 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  background: #F2EFDF;
+  font-family: 'Arvo', serif;
+}
