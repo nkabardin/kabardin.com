@@ -97,6 +97,11 @@ class App extends Component {
             ,
             {' '}
             <span className="item">
+              <span role="img" aria-label="runner">🏃</span>running
+            </span>
+            ,
+            {' '}
+            <span className="item">
               <span role="img" aria-label="bicycle">🚴</span>cycling
             </span>
             ,
